@@ -42,11 +42,11 @@ jobs:
         run: |
           xz -z -9 -k dlc.dat
           sha256sum dlc.dat.xz > dlc.dat.xz.sha256sum
-      - name: Release and upload assets
-        run: |
-          gh release create ${{ env.TAG_NAME }} --generate-notes --latest --title ${{ env.RELEASE_NAME }} ./dlc.dat ./dlc.dat.*
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Release and upload assets
+      #   run: |
+      #     gh release create ${{ env.TAG_NAME }} --generate-notes --latest --title ${{ env.RELEASE_NAME }} ./dlc.dat ./dlc.dat.*
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release Firmware
         uses: softprops/action-gh-release@v2
