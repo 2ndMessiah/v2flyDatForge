@@ -1,3 +1,7 @@
+https://github.com/2ndMessiah/v2flyDatForge/releases/latest/download/dlc.dat
+
+---
+
 # Domain list community
 
 This project manages a list of domains, to be used as geosites for routing purpose in Project V.
