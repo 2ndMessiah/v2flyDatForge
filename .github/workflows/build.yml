@@ -42,17 +42,15 @@ jobs:
         run: |
           xz -z -9 -k dlc.dat
           sha256sum dlc.dat.xz > dlc.dat.xz.sha256sum
-          cp dlc* ./code
-          cd code
       - name: Release and upload assets
         run: |
           gh release create ${{ env.TAG_NAME }} --generate-notes --latest --title ${{ env.RELEASE_NAME }} ./dlc.dat ./dlc.dat.*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Release Firmware
-      #   uses: softprops/action-gh-release@v2
-      #   with:
-      #     tag_name: ${{ env.TAG_NAME }}_${{ env.RELEASE_NAME }}
-      #     files: ${{ inputs.model == 'n1_immwrt' && env.PACKAGED_OUTPUTPATH || './firmware' }}/*.*
-      #     body_path: ./release_body.txt
+      - name: Release Firmware
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG_NAME }}_${{ env.RELEASE_NAME }}
+          files: ./dlc.dat ./dlc.dat.*
+          # body_path: ./release_body.txt
