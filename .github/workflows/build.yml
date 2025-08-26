@@ -55,5 +55,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.TAG_NAME }}_${{ env.RELEASE_NAME }}
-          files: ./dlc.dat ./dlc.dat.*
+          files: /home/runner/work/v2flyDatForge/v2flyDatForge/dlc.dat /home/runner/work/v2flyDatForge/v2flyDatForge/dlc.dat.*
           # body_path: ./release_body.txt
