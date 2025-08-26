@@ -42,6 +42,9 @@ jobs:
         run: |
           xz -z -9 -k dlc.dat
           sha256sum dlc.dat.xz > dlc.dat.xz.sha256sum
+          ls
+          pwd
+          tree
       # - name: Release and upload assets
       #   run: |
       #     gh release create ${{ env.TAG_NAME }} --generate-notes --latest --title ${{ env.RELEASE_NAME }} ./dlc.dat ./dlc.dat.*
