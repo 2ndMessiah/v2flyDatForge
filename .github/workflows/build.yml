@@ -27,7 +27,8 @@ jobs:
           rm -rf *
           curl -L https://energized.pro/nsfw/domains.txt > nsfw
           cd ..
-          go run ./ --outputdir=./
+          go run ./ --outputdir=../
+          cd ..
           # 移除下面这行：cd ../ && rm -rf code
           # 保持 'code' 目录存在，以便 gh 命令可以找到 .git 仓库
       - name: Generate dlc.dat sha256 hash
@@ -41,6 +42,8 @@ jobs:
         run: |
           xz -z -9 -k dlc.dat
           sha256sum dlc.dat.xz > dlc.dat.xz.sha256sum
+          cp dlc* ./code
+          cd code
       - name: Release and upload assets
         run: |
           gh release create ${{ env.TAG_NAME }} --generate-notes --latest --title ${{ env.RELEASE_NAME }} ./dlc.dat ./dlc.dat.*
