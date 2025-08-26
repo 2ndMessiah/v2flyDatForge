@@ -27,7 +27,7 @@ jobs:
           rm -rf *
           curl -L https://energized.pro/nsfw/domains.txt > nsfw
           cd ..
-          go run ./ --outputdir=../
+          go run ./ --outputdir=./
           # 移除下面这行：cd ../ && rm -rf code
           # 保持 'code' 目录存在，以便 gh 命令可以找到 .git 仓库
       - name: Generate dlc.dat sha256 hash
@@ -46,3 +46,10 @@ jobs:
           gh release create ${{ env.TAG_NAME }} --generate-notes --latest --title ${{ env.RELEASE_NAME }} ./dlc.dat ./dlc.dat.*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: Release Firmware
+      #   uses: softprops/action-gh-release@v2
+      #   with:
+      #     tag_name: ${{ env.TAG_NAME }}_${{ env.RELEASE_NAME }}
+      #     files: ${{ inputs.model == 'n1_immwrt' && env.PACKAGED_OUTPUTPATH || './firmware' }}/*.*
+      #     body_path: ./release_body.txt
