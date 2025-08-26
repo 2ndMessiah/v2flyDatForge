@@ -32,6 +32,7 @@ jobs:
           cd data
           rm -rf *
           curl -L https://energized.pro/nsfw/domains.txt > nsfw
+          cd ..
           go run ./ --outputdir=../
           cd ../ && rm -rf code
 
