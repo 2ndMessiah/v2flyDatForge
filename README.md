@@ -1,4 +1,6 @@
 https://github.com/2ndMessiah/v2flyDatForge/releases/latest/download/dlc.dat
+https://github.com/2ndMessiah/v2flyDatForge/releases/latest/download/nsfw.srs
+
 
 ---
 
