@@ -32,6 +32,7 @@ jobs:
           
       - name: Build dlc.dat file
         run: |
+          tree
           cd code || exit 1
           cd data
           rm -rf *
@@ -53,15 +54,13 @@ jobs:
         run: |
           xz -z -9 -k dlc.dat
           sha256sum dlc.dat.xz > dlc.dat.xz.sha256sum
-          pwd
-          ls
-          tree
           
 
       - name: Release Firmware
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ env.TAG_NAME }}_${{ env.RELEASE_NAME }}
+          tag_name: ${{ env.TAG_NAME }}
+          name: ${{ env.RELEASE_NAME }}
           files: |
             /home/runner/work/v2flyDatForge/v2flyDatForge/dlc.dat 
             /home/runner/work/v2flyDatForge/v2flyDatForge/nsfw.srs
