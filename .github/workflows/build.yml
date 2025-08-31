@@ -55,10 +55,12 @@ jobs:
           wget -q https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
           wget -q https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
           wget -q https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
-          mihomo convert-ruleset domain text reject.txt reject.mrs
-          mihomo convert-ruleset domain text proxy.txt proxy.mrs
-          mihomo convert-ruleset domain text direct.txt direct.mrs
-          mihomo convert-ruleset domain text private.txt private.mrs
+          wget -q https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
+          mihomo convert-ruleset domain yaml reject.txt reject.mrs
+          mihomo convert-ruleset domain yaml proxy.txt proxy.mrs
+          mihomo convert-ruleset domain yaml direct.txt direct.mrs
+          mihomo convert-ruleset domain yaml private.txt private.mrs
+          mihomo convert-ruleset domain yaml lancidr.txt lancidr.mrs
 
       - name: Release Firmware
         uses: softprops/action-gh-release@v2
