@@ -49,12 +49,13 @@ jobs:
 
       - name: Convert loyalsodier rules to mrs
         run: |
-          wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.13/mihomo-linux-amd64-v1-v1.19.13.deb
+          wget -q https://github.com/MetaCubeX/mihomo/releases/download/v1.19.13/mihomo-linux-amd64-v1-v1.19.13.deb
+          https://github.com/MetaCubeX/mihomo/releases/latest/download/xxxx.deb
           sudo dpkg -i mihomo*
-          wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
-          wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
-          wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
-          wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
+          wget -q https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
+          wget -q https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
+          wget -q https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
+          wget -q https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
 
           mihomo convert-ruleset domain text reject.txt reject.mrs
           mihomo convert-ruleset domain text proxy.txt proxy.mrs
