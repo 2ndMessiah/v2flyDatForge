@@ -55,26 +55,10 @@ jobs:
           wget -q https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
           wget -q https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
           wget -q https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
-
           mihomo convert-ruleset domain text reject.txt reject.mrs
           mihomo convert-ruleset domain text proxy.txt proxy.mrs
           mihomo convert-ruleset domain text direct.txt direct.mrs
           mihomo convert-ruleset domain text private.txt private.mrs
-
-
-
-      - name: Generate dlc.dat sha256 hash
-        run: |
-          sha256sum dlc.dat > dlc.dat.sha256sum
-      - name: Generate Zip
-        run: |
-          zip -9 dlc.dat.zip dlc.dat
-          sha256sum dlc.dat.zip > dlc.dat.zip.sha256sum
-      - name: Generate XZ
-        run: |
-          xz -z -9 -k dlc.dat
-          sha256sum dlc.dat.xz > dlc.dat.xz.sha256sum
-          
 
       - name: Release Firmware
         uses: softprops/action-gh-release@v2
