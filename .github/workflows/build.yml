@@ -42,7 +42,28 @@ jobs:
           go run ./ --outputdir=../
           cd ..
           curl -L https://energized.pro/nsfw/adblock.txt > adblock.txt
+      
+      - name: Build singbox srs rules.
+        run: |
           sing-box rule-set convert ./adblock.txt  -t adguard -o nsfw.srs
+
+      - name: Convert loyalsodier rules to mrs
+        run: |
+          wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.13/mihomo-linux-amd64-v1-v1.19.13.deb
+          dpkg -i mihomo*
+          wget https://rp.g999.ru/https/cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
+          wget https://rp.g999.ru/https/cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
+          wget https://rp.g999.ru/https/cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
+          wget https://rp.g999.ru/https/cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
+          wget https://rp.g999.ru/https/cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
+          wget https://rp.g999.ru/https/cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
+          mihomo convert-ruleset domain text reject.yaml reject.mrs
+          mihomo convert-ruleset domain text proxy.yaml proxy.mrs
+          mihomo convert-ruleset domain text direct.yaml direct.mrs
+          mihomo convert-ruleset domain text private.yaml private.mrs
+          mihomo convert-ruleset ipcidr text cncidr.yaml cncidr.mrs
+          mihomo convert-ruleset ipcidr text lancidr.yaml lancidr.mrs
+
 
       - name: Generate dlc.dat sha256 hash
         run: |
@@ -65,3 +86,4 @@ jobs:
           files: |
             /home/runner/work/v2flyDatForge/v2flyDatForge/dlc.dat 
             /home/runner/work/v2flyDatForge/v2flyDatForge/nsfw.srs
+            /home/runner/work/v2flyDatForge/v2flyDatForge/*.mrs
