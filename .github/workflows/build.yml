@@ -50,7 +50,7 @@ jobs:
       - name: Convert loyalsodier rules to mrs
         run: |
           wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.13/mihomo-linux-amd64-v1-v1.19.13.deb
-          dpkg -i mihomo*
+          sudo dpkg -i mihomo*
           wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
           wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
           wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
