@@ -60,7 +60,7 @@ jobs:
           mihomo convert-ruleset domain yaml proxy.txt proxy.mrs
           mihomo convert-ruleset domain yaml direct.txt direct.mrs
           mihomo convert-ruleset domain yaml private.txt private.mrs
-          mihomo convert-ruleset domain yaml lancidr.txt lancidr.mrs
+          mihomo convert-ruleset ipcidr yaml lancidr.txt lancidr.mrs
 
       - name: Release Firmware
         uses: softprops/action-gh-release@v2
