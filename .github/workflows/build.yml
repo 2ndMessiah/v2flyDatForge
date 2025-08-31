@@ -51,12 +51,12 @@ jobs:
         run: |
           wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.13/mihomo-linux-amd64-v1-v1.19.13.deb
           dpkg -i mihomo*
-          wget https://rp.g999.ru/https/cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
-          wget https://rp.g999.ru/https/cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
-          wget https://rp.g999.ru/https/cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
-          wget https://rp.g999.ru/https/cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
-          wget https://rp.g999.ru/https/cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
-          wget https://rp.g999.ru/https/cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
+          wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
+          wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
+          wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
+          wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
+          wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
+          wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
           mihomo convert-ruleset domain text reject.yaml reject.mrs
           mihomo convert-ruleset domain text proxy.yaml proxy.mrs
           mihomo convert-ruleset domain text direct.yaml direct.mrs
