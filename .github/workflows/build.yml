@@ -57,12 +57,12 @@ jobs:
           wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
           wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
           wget https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
-          mihomo convert-ruleset domain text reject.yaml reject.mrs
-          mihomo convert-ruleset domain text proxy.yaml proxy.mrs
-          mihomo convert-ruleset domain text direct.yaml direct.mrs
-          mihomo convert-ruleset domain text private.yaml private.mrs
-          mihomo convert-ruleset ipcidr text cncidr.yaml cncidr.mrs
-          mihomo convert-ruleset ipcidr text lancidr.yaml lancidr.mrs
+          mihomo convert-ruleset domain text reject.txt reject.mrs
+          mihomo convert-ruleset domain text proxy.txt proxy.mrs
+          mihomo convert-ruleset domain text direct.txt direct.mrs
+          mihomo convert-ruleset domain text private.txt private.mrs
+          mihomo convert-ruleset ipcidr text cncidr.txt cncidr.mrs
+          mihomo convert-ruleset ipcidr text lancidr.txt lancidr.mrs
 
 
       - name: Generate dlc.dat sha256 hash
