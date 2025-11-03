@@ -37,11 +37,11 @@ jobs:
           cd code || exit 1
           cd data
           rm -rf *
-          curl -L https://energized.pro/nsfw/domains.txt > nsfw
+          curl -L https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/nsfw-onlydomains.txt > nsfw
           cd ..
           go run ./ --outputdir=../
           cd ..
-          curl -L https://energized.pro/nsfw/adblock.txt > adblock.txt
+          curl -L https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/nsfw.txt > adblock.txt
       
       - name: Build singbox srs rules.
         run: |
