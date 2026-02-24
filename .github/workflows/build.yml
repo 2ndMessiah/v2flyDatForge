@@ -3,10 +3,15 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 12 * * 0'  # Run at 12:00 PM UTC (8:00 PM Singapore Time) every Sunday
-permissions:
-  actions: write
-  contents: write
 jobs:
+  keepalive-job:
+    name: Keepalive Workflow
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -25,8 +30,6 @@ jobs:
           echo "RELEASE_NAME=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
           echo "TAG_NAME=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
         shell: bash
-      - name: Keepalive Workflow
-        uses: gautamkrishnar/keepalive-workflow@v2 # 自动通过 API 更新 repo 状态，防止 workflow 暂停
 
       - name: Install sing-box
         run: |
