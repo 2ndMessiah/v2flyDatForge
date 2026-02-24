@@ -5,6 +5,7 @@ on:
     - cron: '0 12 * * 0'  # Run at 12:00 PM UTC (8:00 PM Singapore Time) every Sunday
 permissions:
   actions: write
+  contents: write
 jobs:
   build:
     name: Build
