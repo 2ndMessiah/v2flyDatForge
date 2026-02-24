@@ -27,7 +27,16 @@ jobs:
         run: |
           curl -fsSL https://sing-box.app/install.sh | sh
           sing-box version
-
+          
+      - name: Keepalive Commit
+        run: |
+          cd code
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          echo "Last run: $(date)" > heartbeat.txt
+          git add heartbeat.txt
+          git commit -m "chore: keepalive workflow [skip ci]" || exit 0 # 如果没有变化就不提交
+          git push
           
       - name: Build dlc.dat file
         run: |
