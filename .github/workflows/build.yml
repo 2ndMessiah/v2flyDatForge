@@ -26,8 +26,6 @@ jobs:
         shell: bash
       - name: Keepalive Workflow
         uses: gautamkrishnar/keepalive-workflow@v2 # 自动通过 API 更新 repo 状态，防止 workflow 暂停
-        with:
-          use_api: true # 优先使用 API 方式，不产生 commit
 
       - name: Install sing-box
         run: |
